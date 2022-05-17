@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import './App.css';
 import Count from './Components/Count';
 import Controls from './Components/Controls';
 import { Provider } from "react-redux";
 import store from './redux/store';
+import ColorSelector from './Components/ColorSelector';
 
 function App() {
   
@@ -12,6 +12,7 @@ function App() {
       <Provider store={store}>
         <Count />
         <Controls />
+        <ColorSelector />
       </Provider>
     </div>
   );
