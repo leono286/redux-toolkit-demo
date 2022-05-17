@@ -1,16 +1,17 @@
-import { useState } from 'react';
 import './App.css';
 import Count from './Components/Count';
 import Controls from './Components/Controls';
+import { Provider } from "react-redux";
+import store from './redux/store';
 
 function App() {
   
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      <Count count={count} />
-      <Controls count={count} setCount={setCount} />
+      <Provider store={store}>
+        <Count />
+        <Controls />
+      </Provider>
     </div>
   );
 }

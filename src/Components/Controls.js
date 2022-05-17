@@ -1,19 +1,18 @@
-function Controls(props) {
+import { useDispatch, useSelector } from 'react-redux';
+import { decrement, increment } from '../redux/CounterSlice';
+
+function Controls() {
   
-  const { count, setCount } = props;
+  const count = useSelector(state => state.counter.count);
+  const dispatch = useDispatch();
 
-  const increment = () => {
-    setCount(count + 1)
-  }
-
-  const decrement = () => {
-    setCount(count - 1)
-  }
+  const incrementHandler = () => {dispatch(increment())};
+  const decrementHandler = () => {dispatch(decrement())};
   
   return (
     <div className="component controls">
-      <button onClick={increment}>Increment</button>
-      <button disabled={!count} onClick={decrement}>Decrement</button>
+      <button onClick={incrementHandler}>Increment</button>
+      <button disabled={!count} onClick={decrementHandler}>Decrement</button>
     </div>
   );
 

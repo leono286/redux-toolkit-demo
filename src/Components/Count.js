@@ -1,5 +1,7 @@
-function Count(props) {
-  const { count } = props;
+import { useSelector } from 'react-redux';
+
+function Count() {
+  const count = useSelector(state => state.counter.count);
 
   return (
     <div className="count-box component">
